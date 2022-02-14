@@ -4,6 +4,7 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -16,6 +17,18 @@ class MainActivity : AppCompatActivity() {
 
     val startPhotoFrameModeButton: Button by lazy {
         findViewById<Button>(R.id.startPhotoFrameModeButton)
+    }
+
+    val imageViewList : List<ImageView> by lazy{
+        mutableListOf<ImageView>().apply {
+            add(findViewById(R.id.image1_1))
+            add(findViewById(R.id.image1_2))
+            add(findViewById(R.id.image1_3))
+            add(findViewById(R.id.image2_1))
+            add(findViewById(R.id.image2_2))
+            add(findViewById(R.id.image2_3))
+
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +59,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun showContextPermissionPopup() {
         AlertDialog.Builder(this)
             .setTitle("권한이 요구됩니다")

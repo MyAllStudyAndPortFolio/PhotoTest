@@ -6,6 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/firstRowLinearLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintDimensionRatio="H,3:1"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+        <ImageView
+            android:id="@+id/image1_1"
+            android:scaleType="centerCrop"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/image1_2"
+            android:scaleType="centerCrop"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/image1_3"
+            android:scaleType="centerCrop"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/secondRowLinearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/firstRowLinearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintDimensionRatio="H,3:1"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+        <ImageView
+            android:id="@+id/image2_1"
+            android:scaleType="centerCrop"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/image2_2"
+            android:scaleType="centerCrop"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/image2_3"
+            android:scaleType="centerCrop"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
     <Button
         android:id="@+id/startPhotoFrameModeButton"
         app:layout_constraintBottom_toBottomOf="parent"
