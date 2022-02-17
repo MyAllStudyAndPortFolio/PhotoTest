@@ -3,6 +3,7 @@ package com.example.phototest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+    private  val imageUriList: MutableList<Uri> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -126,7 +129,36 @@ class MainActivity : AppCompatActivity() {
         resultCode: Int,
         data: Intent?)
     {
-        super.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode,resultCode,data)
+        if(resultCode != Activity.RESULT_OK){
+            return
+        }
+
+        when(requestCode){
+            2000 -> {
+                val selectedImageUri : Uri? = data?.data
+
+                if(selectedImageUri != null){
+
+                    if(imageUriList.size > 6) {
+                        Toast.makeText(this, " 이미 사진이 6장을 넘겼습니다", Toast.LENGTH_SHORT).show()
+                        return
+                    }
+
+                    imageUriList.add(selectedImageUri)
+                    imageViewList[imageUriList.size-1].setImageURI(selectedImageUri)
+                }
+                else {
+                    Toast.makeText(this, "자신을 가져오지 못햇습니다d", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+            else -> {
+                Toast.makeText(this, "자신을 가져오지 못햇습니다d", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
 
 
     }
@@ -145,6 +177,9 @@ class MainActivity : AppCompatActivity() {
             .show()
 
     }
+
+
+
     private fun initStartPhotoFrameModeButton(){
 
     }
