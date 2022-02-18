@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 //activitycompat를 붙여야 오류가 안난다.
                 ActivityCompat.shouldShowRequestPermissionRationale(this,android.Manifest.permission.READ_EXTERNAL_STORAGE) -> {
-                     //todo 권한 팝업 확인 후 띄우는 기능
+                    //todo 권한 팝업 확인 후 띄우는 기능
                     showContextPermissionPopup()
                 }
                 else->{
@@ -69,6 +69,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
+
+    private fun initStartPhotoFrameModeButton(){
+        startPhotoFrameModeButton.setOnClickListener {
+            val intent = Intent(this, PhotoFrameActivity::class.java)
+            imageUriList.forEachIndexed{ index, uri ->
+                intent.putExtra("photo$index",uri.toString())
+
+            }
+            intent.putExtra("photoListSize", imageUriList.size)
+            startActivity(intent)
+        }
+    }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -180,9 +195,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    private fun initStartPhotoFrameModeButton(){
-
-    }
 
 
 }
